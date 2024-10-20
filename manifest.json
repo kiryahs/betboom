@@ -1,0 +1,45 @@
+{
+    "manifest_version": 3,
+    "name": "BetBoom Live Parser",
+    "version": "1.0",
+    "description": "Парсер для ставок на сайте BetBoom",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage",
+        "tabs",
+        "webRequest",
+        "webRequestBlocking",
+        "notifications"  // Разрешение для уведомлений
+    ],
+    "host_permissions": [
+        "https://betboom.ru/*",
+        "https://fon.bet/*",
+        "https://api.telegram.org/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://betboom.ru/sport/live*"],
+            "js": ["content.js"],
+            "run_at": "document_idle"
+        },
+        {
+            "matches": ["https://fon.bet/*"],
+            "js": ["fonbet_content.js"],
+            "run_at": "document_idle"
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "images.png"
+    },
+    "icons": {
+        "48": "images.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "externally_connectable": {
+        "matches": ["*://betboom.ru/*", "*://fon.bet/*"]
+    }
+}
