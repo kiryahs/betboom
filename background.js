@@ -15,8 +15,8 @@ function debugLog(...args) {
 
 // Функция для отправки сообщения в Telegram
 async function sendToTelegram(message) {
-    const TELEGRAM_TOKEN = "8161324627:AAEdBKEjzXbT4cQ89Xm608hRepbxZQ6whk4";  // Замените на ваш новый токен
-    const CHAT_IDS = ["281941384", "CHAT_ID_2"];  // Укажите здесь свои chat_id
+    const TELEGRAM_TOKEN = "";  // Замените на ваш новый токен
+    const CHAT_IDS = [""];  // Укажите здесь свои chat_id
 
     for (const chatId of CHAT_IDS) {
         try {
